@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1a0b12, #4a1625);
+    color: white;
+}
+
+.container {
+    min-height: 100vh;
+}
+
+.screen {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+.welcome h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.welcome p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+button {
+    border: none;
+    padding: 15px 30px;
+
+    border-radius: 30px;
+
+    background: #d8a24a;
+    color: #241018;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+}
+
+.surprise h2 {
+    font-size: 45px;
+    margin-bottom: 25px;
+}
+
+.main-photo {
+    width: 320px;
+    max-width: 90%;
+
+    border-radius: 20px;
+
+    margin-bottom: 30px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+
+    animation: photoAppear 1.5s ease;
+}
+
+.message {
+    max-width: 650px;
+
+    font-size: 22px;
+    line-height: 2;
+
+    animation: messageAppear 2s ease;
+}
+
+.message p {
+    margin-bottom: 15px;
+}
+
+
+@keyframes photoAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+#hearts-container
+{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+.heart
+{
+    position: absolute;
+    bottom: -50px;
+    font-size: 25ps;
+    animation: floatHeart linear forwards;
+    opacity: 0;
+}
+@keyframes floatHeart{
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10%{
+        opacity: 0.8;
+    }
+    90%{
+        opacity: 0.8;
+    }
+    100%{
+        transform: translateY(-110vh) rotate(360deg);
+    }
+}
+
+#sparkles-container{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+}
+.sparkles{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 15px white;
+    animation: sparkleAnimation 2s ease-out forwards;
+}
+
+@keyframes sparkleAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.main-photo{
+    position: relative;
+    animation: photoAppear 1.5s ease,photoGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes photoGlow {
+
+    from {
+        box-shadow:
+            0 0 15px rgba(255, 255, 255, 0.2),
+            0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+    to {
+        box-shadow:
+            0 0 45px rgba(255, 150, 200, 0.8),
+            0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+}
